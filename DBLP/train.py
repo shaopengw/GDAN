@@ -66,7 +66,21 @@ if args.conv_name=="sehgnn":
 
 label=label.tolist()
 
+# for reproducing data
+# from sklearn.model_selection import train_test_split
+# def split_data(n, ratio=[0.6,0.2,0.2],seed=2023):
+#     set_random_seed(2023)
+#     companies_index= np.arange(n)
+#     train_data_idx, rest_test_data_idx, _, _ = train_test_split(companies_index, companies_index, train_size=ratio[0],
+#                                                                 random_state=seed)
+#     valid_data_idx, test_data_idx, _, _ = train_test_split(rest_test_data_idx, rest_test_data_idx, test_size=(1-ratio[0])/2,
+#                                                            random_state=seed)
 
+#     return train_data_idx,valid_data_idx, test_data_idx
+# train_idx,valid_idx,test_idx=split_data(4057, ratio=[0.8,0.1,0.1],seed=2023)
+# with open('./data/idx.pkl','wb') as f:
+#     idxs=[train_idx,valid_idx,test_idx]
+#     pickle.dump(idxs,f)
 set_random_seed(2028)
 with open('./data/index.pkl', "rb") as f:
     idxs = pickle.load(f)
