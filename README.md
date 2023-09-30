@@ -5,7 +5,12 @@ To run the machine learning methods on CED, you can implement following code:
 
     python ml_baselines.py
 
-To reproduce the node classification results on DBLP, you can implement following code:
+To reproduce the node classification results on DBLP, you need to firstly run:
+
+    python process_dblp.py
+    python ./DBLP/data/metapath.py
+
+ afterwards, you can implement following code:
 
     python ./DBLP/train.py
 

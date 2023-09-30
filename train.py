@@ -35,11 +35,15 @@ criterion = nn.CrossEntropyLoss()
 
 
 #load data
-data=args.data_dir+'CED.pkl'
-with open(data, "rb") as f:
-    dataset = pickle.load(f)
+data1=args.data_dir+'CED1.pkl'
+with open(data1, "rb") as f:
+    dataset1 = pickle.load(f)
+data2=args.data_dir+'CED2.pkl'
+with open(data2, "rb") as f:
+    dataset2 = pickle.load(f)
+node_feat,idx ,label = dataset1
+graph=dataset2
 
-node_feat,graph,idx ,label = dataset
 
 edge,edge_type,edge_weight= graph
 train_data_idx, valid_data_idx, test_data_idx= idx
