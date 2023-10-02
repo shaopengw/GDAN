@@ -24,21 +24,21 @@ from config import args
 import os
 from copy import deepcopy
 
-set_random_seed(2023)
+set_random_seed(1)
 
-# if args.cuda != -1:
-#     device = torch.device("cuda:" + str(args.cuda))
-# else:
-#     device = torch.device("cpu")
-device=torch.device("cpu")
+if args.cuda != -1:
+    device = torch.device("cuda:" + str(args.cuda))
+else:
+    device = torch.device("cpu")
+# device=torch.device("cpu")
 criterion = nn.CrossEntropyLoss()
 
 
 #load data
-data1=args.data_dir+'CED1.pkl'
+data1=args.data_dir+'ECAD1.pkl'
 with open(data1, "rb") as f:
     dataset1 = pickle.load(f)
-data2=args.data_dir+'CED2.pkl'
+data2=args.data_dir+'ECAD2.pkl'
 with open(data2, "rb") as f:
     dataset2 = pickle.load(f)
 node_feat,idx ,label = dataset1
@@ -187,6 +187,7 @@ def train():
                 torch.save(model.state_dict(), './model_save/%s.pkl'%(args.conv_name))
 
                 print('UPDATE!!!')
+                test()
 
             et = time.time()
             print(("Epoch: %d (%.1fs)  LR: %.5f Train Loss: %.4f  Train Acc: %.2f  Valid Loss: %.4f  Valid Acc: %.4f Valid Pre: %.4f  Valid Recall: %.4f Valid F1: %.4f  Valid Roc: %.4f"  ) % \
