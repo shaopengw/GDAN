@@ -1,4 +1,4 @@
-To reproduce the credit evaluation on results on CED, you can implement following code:
+To reproduce the enterprise credit assessment results on CED, you can implement following code:
 
     python train.py
 To run the machine learning methods on CED, you can implement following code:

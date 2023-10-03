@@ -15,7 +15,7 @@ parser.add_argument('--cuda', type=int, default=2,
    Model arguments
 '''
 parser.add_argument('--conv_name', type=str, default='riskgnn',
-                    choices=['gat', 'gcn','rgcn','hat','han','hetgnn','hgnn','ie-hgcn','hwnn','riskgnn','hgt','sehgnn'],
+                    choices=['gat', 'gcn','rgcn','han','riskgnn','hgt','sehgnn'],
                     help='The name of GNN filter.')
 parser.add_argument('--input_dim', type=int, default=128,
                     help='Number of input dimension')
