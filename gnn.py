@@ -192,7 +192,7 @@ class HAN(nn.Module):
                 self.gat.append(HANConv(output_dim, output_dim , heads=heads,metadata=metadata))
 
     def forward(self,x,edge_index,idx,edge_type):
-        x=F.relu(self.norm(self.proj(x)))
+        x=self.norm(self.proj(x))
 
         x_dict={'person':x}
         edge_index_dict={}
