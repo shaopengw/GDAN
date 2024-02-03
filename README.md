@@ -7,7 +7,7 @@ To run the machine learning methods on ECAD, you can implement following code:
 
     python ml_baselines.py
 
-To run reproduce the results on SMEsD dataset, you can run:
+To reproduce the results on SMEsD dataset, you can run:
 
     cd ./SMEsD/
     python train.py
