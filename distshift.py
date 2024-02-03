@@ -1,16 +1,12 @@
 # coding: utf-8
 import torch
-from os import times
-import pandas as pd
 import torch
 import pickle
-import time
 from torch import nn
 import numpy as np
 
-# from gnn_dgl import GNNConv
 from gnn import GNNConv
-from utils import Classifier, set_random_seed, FocalLoss, weighted_CELoss
+from utils import Classifier, set_random_seed
 
 from sklearn.metrics import accuracy_score as acc
 from sklearn.metrics import recall_score as rec
@@ -21,7 +17,6 @@ from sklearn.metrics import roc_auc_score as roc
 from torch_geometric.utils import degree
 from tqdm import tqdm
 
-import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 plt.style.use('ggplot')
@@ -44,17 +39,19 @@ if args.cuda != -1:
     device = torch.device("cuda:" + str(args.cuda))
 else:
     device = torch.device("cpu")
-# device=torch.device("cpu")
 criterion = nn.CrossEntropyLoss()
 
 
 
 #load data
-data=args.data_dir+'CED.pkl'
-with open(data, "rb") as f:
-    dataset = pickle.load(f)
-
-node_feat,graph,idx ,label = dataset
+data1=args.data_dir+'ECAD1.pkl'
+with open(data1, "rb") as f:
+    dataset1 = pickle.load(f)
+data2=args.data_dir+'ECAD2.pkl'
+with open(data2, "rb") as f:
+    dataset2 = pickle.load(f)
+node_feat,idx ,label = dataset1
+graph=dataset2
 
 edge,edge_type,edge_weight= graph
 train_data_idx, valid_data_idx, test_data_idx= idx

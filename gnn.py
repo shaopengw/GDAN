@@ -1,4 +1,3 @@
-from pickle import FALSE
 import torch
 import torch.nn as nn
 from torch.nn import init
@@ -6,9 +5,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import GCNConv, GATConv,RGCNConv,HGTConv,HANConv
 from torch import softmax, scatter
 import math
-
 from torch_geometric.utils import softmax
-from torch.nn import Sequential, Linear, ReLU, Dropout
 from torch_scatter import scatter
 from torch_geometric.nn.conv.gcn_conv import gcn_norm
 
