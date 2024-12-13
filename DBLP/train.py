@@ -78,7 +78,7 @@ label=label.tolist()
 
 #     return train_data_idx,valid_data_idx, test_data_idx
 # train_idx,valid_idx,test_idx=split_data(4057, ratio=[0.8,0.1,0.1],seed=2023)
-# with open('./data/idx.pkl','wb') as f:
+# with open('./data/index.pkl','wb') as f:
 #     idxs=[train_idx,valid_idx,test_idx]
 #     pickle.dump(idxs,f)
 set_random_seed(2028)
