@@ -26,17 +26,24 @@ parser.add_argument('--dataset', type=str, default='credit',
 args = parser.parse_args()
 
 
-result_path = './DatasetProcessingCode/res/'
+result_path = './data/'
 
 
-data=result_path+'CED.pkl'
+data1=result_path+'ECAD1.pkl'
 
-with open(data, "rb") as f:
-    dataset = pickle.load(f)
+with open(data1, "rb") as f:
+    dataset1 = pickle.load(f)
 
-node_feat,graph,idx ,label = dataset
 
-edge,edge_type,edge_weight= graph
+data2=result_path+'ECAD2.pkl'
+
+with open(data2, "rb") as f:
+    dataset2 = pickle.load(f)
+
+
+node_feat,idx ,label = dataset1
+
+edge,edge_type,edge_weight= dataset2
 train_data_idx, valid_data_idx, test_data_idx= idx
 
 
